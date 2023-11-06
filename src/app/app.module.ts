@@ -14,9 +14,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
+import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-publicacao.component';
+import { ProgressoService } from './progresso.service';
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    PublicacoesComponent
+    PublicacoesComponent,
+    IncluirPublicacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyB4v5XFOpBSbyQy5LusyCCxtCI2dM4Td08",
       authDomain: "insta-clone-ba6be.firebaseapp.com",
@@ -47,7 +52,7 @@ import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
       measurementId: "G-E8V2EZX6LP"
     })
   ], 
-  providers: [  AuthService  ],
+  providers: [  AuthService, ProgressoService  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

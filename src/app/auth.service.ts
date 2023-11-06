@@ -53,7 +53,19 @@ export class AuthService {
     if(token) {
       this.tokenId = token
     }
+    if(this.tokenId === undefined) {
+      this.router.navigate(['/'])
+    }
     return this.tokenId !== null && this.tokenId !== undefined
+  }
+
+  public logout() {
+    
+    this.dbAuth.signOut().then(() => {
+      localStorage.removeItem('token')
+      this.tokenId = undefined
+      this.router.navigate(['/'])
+    })
   }
 
 
